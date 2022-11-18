@@ -60,7 +60,7 @@ const caloriesCounter = () => {
     inputsGroup.addEventListener('input', checkSubmitButton);
     activities.forEach(activity => {
         if (activity.checked) activityRatio = physicalActivityRatios.get(activity.id);
-        activity.addEventListener('change', (evt) => activityRatio = physicalActivityRatios.get(activity.id));
+        activity.addEventListener('change', () => activityRatio = physicalActivityRatios.get(activity.id));
     });
 
     submitButton.addEventListener('click', handleSubmit);
