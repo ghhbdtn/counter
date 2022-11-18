@@ -4,9 +4,9 @@ const submitButton = document.querySelector('.form__submit-button');
 const resetButton = document.querySelector('.form__reset-button');
 const inputsGroup = document.querySelector('.inputs-group');
 
-const ageInput = document.querySelector('#age');
-const heightInput = document.querySelector('#height');
-const weightInput = document.querySelector('#weight');
+const age = document.querySelector('#age');
+const height = document.querySelector('#height');
+const weight = document.querySelector('#weight');
 
 const resultBlock = document.querySelector('.counter__result');
 
@@ -23,6 +23,6 @@ reset();
 
 export {
     submitButton, resetButton, inputsGroup, resultBlock,
-    genders, ageInput, heightInput, weightInput,
+    genders, age, height, weight,
     caloriesNorm, caloriesMinimal, caloriesMaximal, activities
 };

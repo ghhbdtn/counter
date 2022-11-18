@@ -1,6 +1,6 @@
 import {
     submitButton, resetButton, inputsGroup, resultBlock,
-    genders, ageInput, heightInput, weightInput,
+    genders, age, height, weight,
     caloriesNorm, caloriesMinimal, caloriesMaximal, activities
 } from "./script.js";
 const caloriesFormulaConstants = new Map([
@@ -22,19 +22,19 @@ const handleReset = () => {
     submitButton.disabled = true;
     resetButton.disabled = true;
     genders.checked = true;
-    ageInput.value = '';
-    heightInput.value = '';
-    weightInput.value = '';
+    age.value = '';
+    height.value = '';
+    weight.value = '';
     activities[0].checked = true;
     resultBlock.classList.add('counter__result--hidden');
 };
 
 const checkResetButton = () => {
-    resetButton.disabled = !(ageInput.value !== '' || heightInput.value !== '' || weightInput.value !== '');
+    resetButton.disabled = !(age.value !== '' || height.value !== '' || weight.value !== '');
 };
 
 const checkSubmitButton = () => {
-    submitButton.disabled = !(ageInput.value !== '' && heightInput.value !== '' && weightInput.value !== '');
+    submitButton.disabled = !(age.value !== '' && height.value !== '' && weight.value !== '');
 };
 
 const handleSubmit = (evt) => {
@@ -46,7 +46,7 @@ const handleSubmit = (evt) => {
 const calculateCalories = () => {
 
     const genderNorm = genders.checked ? caloriesFormulaConstants.get('male') : caloriesFormulaConstants.get('female');
-    const savedWeight = Math.round(((10 * weightInput.value) + (6.25 * heightInput.value) - (5 * ageInput.value) + genderNorm)
+    const savedWeight = Math.round(((10 * weight.value) + (6.25 * height.value) - (5 * age.value) + genderNorm)
         * activityRatio);
     const caloriesMin = Math.round(savedWeight * 1.15);
     const caloriesMax = Math.round(savedWeight * 0.85);
